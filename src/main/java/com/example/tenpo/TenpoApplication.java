@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableCaching
-@ComponentScan("com.example.tenpo.api.exceptions")
 public class TenpoApplication {
 
 	public static void main(String[] args) {
