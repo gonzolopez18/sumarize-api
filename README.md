@@ -7,6 +7,7 @@
 - JDK 17 o superior, Maven
 - Editor de código preferido (ej. Intellij)
 - Servidor PostgreSql (puede usarse un container docker)
+- Docker Desktop
 
 ### Pasos
 
