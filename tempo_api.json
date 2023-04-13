@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "c1d57749-4254-49cd-a6f7-e84d1b34b0ca",
+		"name": "demo app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20633580"
+	},
+	"item": [
+		{
+			"name": "tempo",
+			"item": [
+				{
+					"name": "logging getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/logging/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"logging",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logging Paginated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/logging/getpaginated?page_number=1&page_size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"logging",
+								"getpaginated"
+							],
+							"query": [
+								{
+									"key": "page_number",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "summarize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/tenpo/summarize/:number1/:number2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"tenpo",
+								"summarize",
+								":number1",
+								":number2"
+							],
+							"variable": [
+								{
+									"key": "number1",
+									"value": "5"
+								},
+								{
+									"key": "number2",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
