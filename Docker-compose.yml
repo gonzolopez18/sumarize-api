@@ -3,11 +3,13 @@ services:
   app:
     build: .
     ports:
-      - "8081:8080"
+      - "8080:8080"
     depends_on:
       - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME:postgres
+      - SPRING_DATASOURCE_PASSWORD:postgres
 #    command: ["/app/wait-for-it.sh", "db:5432", "--", "java", "-jar", "app.jar"]
   db:
     image: postgres:14.1-alpine
@@ -16,8 +18,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - dbdata:/var/lib/postgresql/datadb
+      - dbdata:/var/lib/postgresql/data
 volumes:
   dbdata:
