@@ -10,7 +10,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
       - SPRING_DATASOURCE_USERNAME:postgres
       - SPRING_DATASOURCE_PASSWORD:postgres
-#    command: ["/app/wait-for-it.sh", "db:5432", "--", "java", "-jar", "app.jar"]
   db:
     image: postgres:14.1-alpine
     restart: always
