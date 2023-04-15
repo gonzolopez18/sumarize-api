@@ -4,11 +4,13 @@ import com.example.tenpo.infrastructure.logging.ApiInterceptor;
 import com.example.tenpo.infrastructure.ratelimiter.RateLimiterHandlerInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
+@EnableRetry
 public class AppConfig implements WebMvcConfigurer {
 
     @Autowired
