@@ -50,19 +50,15 @@ public class RequestLoggingImplTest {
     @Test
     public void testSave() throws IOException {
         String payload = "test payload";
-        when(requestMock.getMethod()).thenReturn("POST");
+       /* when(requestMock.getMethod()).thenReturn("POST");
         when(requestMock.getRequestURI()).thenReturn("/test");
         BufferedReader reader = new BufferedReader(new StringReader(payload));
         when(requestMock.getContentLength()).thenReturn(1);
         when(requestMock.getReader()).thenReturn(reader);
-        when(responseMock.getStatus()).thenReturn(200);
+        when(responseMock.getStatus()).thenReturn(200);*/
         LocalDateTime expectedDateTime = LocalDateTime.now();
         when(timeService.getCurrentTime()).thenReturn(expectedDateTime);
 
-        // Call the method under test
-        requestLoggingService.save(requestMock, responseMock);
-
-        // Verify that the repository.save() method was called once with the expected arguments
         ApiRequest expectedRequest = new ApiRequest();
         expectedRequest.setMethod("POST");
         expectedRequest.setUrl("/test");
@@ -70,6 +66,9 @@ public class RequestLoggingImplTest {
         expectedRequest.setTimestamp(expectedDateTime);
         expectedRequest.setStatusCode(200);
         expectedRequest.setResponse("guardado");
+
+        requestLoggingService.save(expectedRequest);
+
         verify(repositoryMock, times(1)).save(expectedRequest);
     }
 
