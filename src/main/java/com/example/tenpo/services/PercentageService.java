@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface PercentageService {
 
-    public Optional<Double> getPercentage(Integer id);
+    public Optional<Double> getPercentage();
 }

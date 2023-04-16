@@ -21,7 +21,7 @@ public class ApiRequest {
     @Column(length = 100)
     private String request;
 
-    @Column(length = 10)
+    @Column(length = 100)
     private String response;
 
     private int statusCode;
