@@ -22,7 +22,7 @@ public class PercentageCalculator implements Calculator {
 
     @Override
     public Double calculate(Double number1, Double number2) {
-        Optional<Double> percentage = percentageService.getPercentage( (int) Math.round(number1));
+        Optional<Double> percentage = percentageService.getPercentage();
         if (percentage.isEmpty())
             throw new NoSuchElementException("No es posible obtener el porcentaje.");
         return (number1 + number2) * (1 * percentage.get());
