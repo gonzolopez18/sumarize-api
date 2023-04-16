@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +30,7 @@ public class PercentageCalculatorTest {
     @ParameterizedTest
     @MethodSource("getCalculatorData")
     public void calculateTest(double number1, double number2, Double percentage, double expected) {
-        when(percentageService.getPercentage()).thenReturn(percentage);
+        when(percentageService.getPercentage()).thenReturn(Optional.of(percentage));
 
         double result = calculator.calculate(number1, number2);
 
@@ -48,7 +49,7 @@ public class PercentageCalculatorTest {
     public void calculateThrowsError() {
         double number1 = 5;
         double number2 = 5;
-        when(percentageService.getPercentage()).thenReturn(null);
+        when(percentageService.getPercentage()).thenReturn(Optional.empty());
 
         assertThrows(NoSuchElementException.class,
                 () -> calculator.calculate(number1, number2));

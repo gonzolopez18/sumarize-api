@@ -70,7 +70,12 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>5.2.8.RELEASE</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
