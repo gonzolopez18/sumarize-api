@@ -2,6 +2,7 @@ package com.example.tenpo.infrastructure.logging;
 
 import com.example.tenpo.domain.ApiRequest;
 import com.example.tenpo.infrastructure.data.RequestLoggingRepository;
+import com.example.tenpo.services.TimeService;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,15 +15,15 @@ import org.apache.commons.io.IOUtils;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Component
 public class RequestLoggingImpl implements RequestLoggingService {
     private final RequestLoggingRepository repository;
-
-    public RequestLoggingImpl(RequestLoggingRepository repository) {
+    private final TimeService timeService;
+    public RequestLoggingImpl(RequestLoggingRepository repository, TimeService timeService) {
         this.repository = repository;
+        this.timeService = timeService;
     }
 
     @Override
@@ -32,7 +33,7 @@ public class RequestLoggingImpl implements RequestLoggingService {
             callToLog.setMethod(request.getMethod());
             callToLog.setUrl(request.getRequestURI());
             callToLog.setRequest(getRequestPayload(request));
-            callToLog.setTimestamp(LocalDateTime.now());
+            callToLog.setTimestamp(timeService.getCurrentTime());
             callToLog.setStatusCode(response.getStatus());
             callToLog.setResponse("guardado");
             //callToLog.setResponse(getResponsePayload(response));
